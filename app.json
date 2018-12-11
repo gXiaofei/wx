@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/myArt/myArt",
+    "pages/addArt/addArt",
+    "pages/message/message",
+    "pages/preson/preson"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "记得你",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./asset/imgs/home.png",
+        "selectedIconPath": "./asset/imgs/selectHome.png"
+      },
+      {
+        "pagePath": "pages/myArt/myArt",
+        "text": "我的文章",
+        "iconPath": "./asset/imgs/my.png",
+        "selectedIconPath": "./asset/imgs/selectMy.png"
+      },
+      {
+        "pagePath": "pages/addArt/addArt",
+        "text": "写文章",
+        "iconPath": "./asset/imgs/add.png",
+        "selectedIconPath": "./asset/imgs/selectAdd.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "./asset/imgs/message.png",
+        "selectedIconPath": "./asset/imgs/selectMessage.png"
+      },
+      {
+        "pagePath": "pages/preson/preson",
+        "text": "个人信息",
+        "iconPath": "./asset/imgs/preson.png",
+        "selectedIconPath": "./asset/imgs/selectPreson.png"
+      }
+    ]
+  }
+}
