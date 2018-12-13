@@ -1,1 +1,86 @@
 /* pages/index/index.wxss */
+.search {
+  height: 60rpx;
+  background: #fff;
+  padding: 10rpx;
+}
+.search input {
+  border: 1px solid #eee;
+  font-size: 20rpx;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.container{
+
+}
+.container .artItem{
+  height: 266rpx;
+  background: #fff;
+  margin: 10rpx 0;
+  padding: 20rpx;
+  position: relative;
+  box-shadow: 1rpx 1rpx 2rpx 0 rgba(0, 0, 0, 0.26);
+}
+
+.container .artItem .author{
+  height: 40rpx;
+  display: flex;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .artItem .author image{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+}
+
+.container .artItem .author text{
+
+}
+
+.container .artItem .author .name{
+}
+
+.container .artItem .author .time{
+  color: #999;
+}
+
+.container .artItem .title{
+  display: block;
+  font-size: 40rpx;
+  font-weight: 900;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container .artItem .content{
+  display: block;
+  font-size: 30rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.container .artItem .operation{
+  height: 50rpx;
+  border-top: 2rpx solid #ccc;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .artItem .operation view{
+
+}

@@ -1,1 +1,37 @@
-/* pages/addArt/addArt.wxss */
+.addContainer{
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.addContainer form{
+  height: 100%;
+  font-size: 30rpx;
+}
+
+.addContainer form .title{
+  margin-bottom: 10rpx;
+}
+
+.addContainer form .title input{
+  border-bottom: 1rpx solid #eee;
+  padding: 10rpx;
+}
+
+.addContainer form .content{
+  padding: 10rpx;
+}
+
+.addContainer form .content textarea {
+  width: 100%;
+  height: 800rpx;
+}
+
+.addContainer form .btn {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}

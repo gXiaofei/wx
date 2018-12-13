@@ -1,8 +1,5 @@
 // pages/index/index.js
 Page({
-  onGotUserInfo: function (res) {
-    console.log(111, res);
-  },
   /**
    * 页面的初始数据
    */

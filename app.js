@@ -7,7 +7,12 @@ App({
    */
   onLaunch: function () {
     wx.login({
-      success: function(res){
+      success: function (res) {
+        if(res.code){
+         
+        }else{
+          console.log('获取登录信息失败' + res.errMsg);
+        }
         console.log(res);
       }
     })

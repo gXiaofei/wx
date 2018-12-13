@@ -1,0 +1,3 @@
+<button wx:if="{{!isCache}}" open-type='getUserInfo' bindgetuserinfo='getuserinfo'>
+  点击登录
+</button>

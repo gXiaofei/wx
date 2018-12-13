@@ -1,17 +1,17 @@
 {
   "pages":[
+    "pages/addArt/addArt",
     "pages/index/index",
     "pages/myArt/myArt",
-    "pages/addArt/addArt",
     "pages/message/message",
-    "pages/preson/preson"
+    "pages/preson/preson",
+    "pages/login/login"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "记得你",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh": true
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "color": "#000",

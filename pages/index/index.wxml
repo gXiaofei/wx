@@ -1,3 +1,10 @@
-<view>
+<import src="../templates/artTemplate.wxml" />
 
+<view class='container'>
+   <view class='search'>
+    <input type='text' placeholder='请输入要搜索的内容' confirm-type='search'/>
+  </view> 
+  <block>
+    <template is='artTemplate' />
+  </block>
 </view>
