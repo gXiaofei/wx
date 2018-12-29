@@ -1,3 +1,4 @@
+
 /* pages/index/index.wxss */
 .search {
   height: 60rpx;
@@ -12,7 +13,7 @@
 }
 
 .container{
-
+  background: #eee;
 }
 .container .artItem{
   height: 266rpx;
@@ -20,7 +21,7 @@
   margin: 10rpx 0;
   padding: 20rpx;
   position: relative;
-  box-shadow: 1rpx 1rpx 2rpx 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 2rpx 2rpx 4rpx 0 rgba(0, 0, 0, 0.26);
 }
 
 .container .artItem .author{
@@ -32,9 +33,10 @@
 }
 
 .container .artItem .author image{
-  width: 20rpx;
-  height: 20rpx;
-  border-radius: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  vertical-align: middle;
 }
 
 .container .artItem .author text{
@@ -42,6 +44,9 @@
 }
 
 .container .artItem .author .name{
+  font-size: 25rpx;
+  color: #333;
+  margin-left: 20rpx;
 }
 
 .container .artItem .author .time{
@@ -83,4 +88,10 @@
 }
 .container .artItem .operation view{
 
+}
+
+.container .last{
+  font-size: 30rpx;
+  text-align: center;
+  color: #ccc;
 }

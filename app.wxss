@@ -1,4 +1,4 @@
 @import '/asset/font/css/font.wxss';
 page{
- background-color: #eee; 
+ /* background-color: #eee;  */
 }

@@ -2,7 +2,7 @@
   "pages":[
     "pages/addArt/addArt",
     "pages/index/index",
-    "pages/myArt/myArt",
+    "pages/hot/hot",
     "pages/message/message",
     "pages/preson/preson",
     "pages/login/login"
@@ -20,19 +20,19 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "read",
         "iconPath": "./asset/imgs/home.png",
         "selectedIconPath": "./asset/imgs/selectHome.png"
       },
       {
-        "pagePath": "pages/myArt/myArt",
-        "text": "我的文章",
+        "pagePath": "pages/hot/hot",
+        "text": "hot",
         "iconPath": "./asset/imgs/my.png",
         "selectedIconPath": "./asset/imgs/selectMy.png"
       },
       {
         "pagePath": "pages/addArt/addArt",
-        "text": "写文章",
+        "text": "write",
         "iconPath": "./asset/imgs/add.png",
         "selectedIconPath": "./asset/imgs/selectAdd.png"
       },

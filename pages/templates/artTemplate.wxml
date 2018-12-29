@@ -2,26 +2,24 @@
     <view class='artItem'>
       <view class='author'>
         <view>
-          <image></image>
-          <text class='name'>余人码头</text>
+          <image src="{{item.avatarUrl}}"></image>
+          <text class='name'>{{item.nickName}}</text>
         </view>
-        <text class='time'>2小时前</text>
+        <text class='time'>{{item.artCreateTime}}</text>
       </view>
-      <text class='title'>2019年 值得收藏的 15 个 JavaScript 和 CSS 动画库</text>
+      <text class='title'>{{item.title}}</text>
       <text class='content'>
-        当我浏览网页寻找一个整洁的 Javascript 动画库时，我发现很多 “推荐” 的动画库都有一段时间没维护了。
-
-        经过一些研究，我收集了 15 个最好的 Javascript 动画库，你可以放心在你的应用程序中使用。在文章最后我还添加了一些有用的库，但是有一部分很久没维护了。
+       {{item.content}}
       </text>
       <view class='operation'>
         <view>
-          <text class='iconfont icon-dianzan'></text>
+          <text class='iconfont icon-chenggongbiaoqing'></text>
         </view>
         <view>
-          <text class='iconfont icon-xiaoxi'></text>
+          <text class='iconfont icon-wukongbiaoqing'></text>
         </view>
         <view>
-          <text class='iconfont icon-shoucang'></text>
+          <text class='iconfont icon-shibaibiaoqing'></text>
         </view>
       </view>
     </view>

@@ -1,13 +1,13 @@
 <view class='addContainer'>
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindreset="formReset">
     <view class='title'>
-      <input name="title" focus='true' type='text' placeholder='标题' />
+      <input name="title" autofocus='true' type='text'  value="{{value.title}}" bindinput='titleInput'  placeholder='标题' />
     </view>
     <view class='content'>
-      <textarea name="content" placeholder='你想说什么？' maxlength='-1'></textarea>
+      <textarea name="content" placeholder='你想写什么？' value="{{value.content}}" bindinput='contentInput' maxlength='-1'></textarea>
     </view>
     <view class="btn">
-      <button form-type="submit" type='primary'>submit</button>
+      <button bindtap='formSubmit' type='primary'>submit</button>
       <button form-type="reset">reset</button>
     </view>
   </form>
