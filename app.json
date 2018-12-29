@@ -1,11 +1,9 @@
 {
   "pages":[
-    "pages/addArt/addArt",
     "pages/index/index",
-    "pages/hot/hot",
-    "pages/message/message",
-    "pages/preson/preson",
-    "pages/login/login"
+    "pages/detail/detail",
+    "pages/addArt/addArt",
+    "pages/message/message"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -25,12 +23,6 @@
         "selectedIconPath": "./asset/imgs/selectHome.png"
       },
       {
-        "pagePath": "pages/hot/hot",
-        "text": "hot",
-        "iconPath": "./asset/imgs/my.png",
-        "selectedIconPath": "./asset/imgs/selectMy.png"
-      },
-      {
         "pagePath": "pages/addArt/addArt",
         "text": "write",
         "iconPath": "./asset/imgs/add.png",
@@ -38,13 +30,7 @@
       },
       {
         "pagePath": "pages/message/message",
-        "text": "消息",
-        "iconPath": "./asset/imgs/message.png",
-        "selectedIconPath": "./asset/imgs/selectMessage.png"
-      },
-      {
-        "pagePath": "pages/preson/preson",
-        "text": "个人信息",
+        "text": "message",
         "iconPath": "./asset/imgs/preson.png",
         "selectedIconPath": "./asset/imgs/selectPreson.png"
       }

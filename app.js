@@ -6,16 +6,22 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.login({
-      success: function (res) {
-        if(res.code){
-         
-        }else{
-          console.log('获取登录信息失败' + res.errMsg);
+    // 获取本地缓存
+    const userinfo = wx.getStorageSync('userinfo');
+    if(userinfo){
+      const currentTime = new Date().getTime();
+      const loginTime = JSON.parse(userinfo).loginTime;
+      // 3天
+      if(currentTime - loginTime > 3600 * 1000 * 24 * 3){
+        try {
+          wx.removeStorageSync('userinfo');
+        } catch (e) {
+          console.log('删除缓存失败')
         }
-        console.log(res);
       }
-    })
+    }else{
+      
+    }
   },
 
   /**

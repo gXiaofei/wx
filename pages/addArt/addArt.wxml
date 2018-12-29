@@ -1,7 +1,10 @@
 <view class='addContainer'>
-  <form bindreset="formReset">
+  <button wx:if="{{!isLogin}}" open-type='getUserInfo' bindgetuserinfo='getuserinfo'>
+    点击登录
+  </button>
+  <form bindreset="formReset" wx:if="{{isLogin}}">
     <view class='title'>
-      <input name="title" autofocus='true' type='text'  value="{{value.title}}" bindinput='titleInput'  placeholder='标题' />
+      <input name="title" autofocus='true' type='text' value="{{value.title}}" bindinput='titleInput' placeholder='标题' />
     </view>
     <view class='content'>
       <textarea name="content" placeholder='你想写什么？' value="{{value.content}}" bindinput='contentInput' maxlength='-1'></textarea>

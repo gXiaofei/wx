@@ -1,0 +1,44 @@
+/* pages/detail/detail.wxss */
+.container{
+  padding: 0 20rpx;
+}
+
+.container .title{
+  font-size: 40rpx;
+  font-weight: bold;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+.container .userinfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.container .userinfo>view {
+  font-size: 20rpx;
+}
+
+.container .userinfo>view image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  vertical-align: top;
+}
+
+.container .userinfo>view text{
+  display: inline-block;
+  margin-left: 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.container .userinfo>text{
+  font-size: 20rpx;
+  color: #999;
+}

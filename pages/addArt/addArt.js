@@ -10,46 +10,56 @@ Page({
       content: ''
     },
     isSubmit: true,
-    isSave: true
+    isSave: true,
+    isLogin: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+    const userinfo = wx.getStorageSync('userinfo');
+    if (userinfo) {
+      this.setData({
+        isLogin: true,
+      })
+    } else {
+      this.setData({
+        isLogin: false
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
     const isSubmit = this.data.isSubmit;
     const _this = this;
-    if (!isSubmit){
+    if (!isSubmit) {
       wx.showModal({
         title: '是否要保存草稿？',
         showCancel: true,
-        success: function (e) {
-          if (e.confirm){
+        success: function(e) {
+          if (e.confirm) {
             _this.setData({
               isSave: true,
             })
-          }else{
+          } else {
             _this.setData({
               isSave: false,
               value: {
@@ -60,7 +70,7 @@ Page({
           }
         }
       })
-    }else{
+    } else {
       this.setData({
         isSave: false,
         value: {
@@ -74,32 +84,31 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    console.log(33333);
+  onUnload: function() {
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   },
   // 保存标题
-  titleInput: function (e) {
+  titleInput: function(e) {
     const value = JSON.stringify(this.data.value);
     this.setData({
       isSubmit: false,
@@ -110,7 +119,7 @@ Page({
     })
   },
   // 保存内容
-  contentInput: function (e) {
+  contentInput: function(e) {
     const value = JSON.stringify(this.data.value);
     this.setData({
       isSubmit: false,
@@ -122,12 +131,12 @@ Page({
   },
 
   // 提交
-  formSubmit: function (event) {
+  formSubmit: function(event) {
     const value = this.data.value;
     const userinfoStr = wx.getStorageSync('userinfo');
     const uesrinfoObj = JSON.parse(userinfoStr);
-    
-    if (value.title.trim() !== '' && value.content.trim() !== ''){
+
+    if (value.title.trim() !== '' && value.content.trim() !== '') {
       wx.showLoading({
         mask: true
       });
@@ -142,23 +151,56 @@ Page({
           nickName: uesrinfoObj.data.nickName,
           avatarUrl: uesrinfoObj.data.avatarUrl
         },
-        success: function(result){
-          console.log('result', result);
-          if (result.statusCode === 200){
+        success: function(result) {
+          if (result.statusCode === 200) {
             wx.hideLoading();
             wx.showToast({
               title: 'write success!\^o^/',
-              success: function () {
-                 // 跳转到详情     
+              success: function() {
+                // 跳转到详情     
+                wx.navigateTo({
+                  url: '/pages/detail/detail?data=' + JSON.stringify(result.data),
+                });
               }
             });
           }
         }
       })
-    }else{
+    } else {
       wx.showToast({
         title: '标题和内容都不能为空',
         icon: 'none'
+      })
+    }
+  },
+  // 获取用户信息
+  getuserinfo: function(e) {
+    if (e.detail.userInfo) {
+      e.detail.userInfo.loginTime = new Date().getTime();
+      const _this = this;
+      wx.request({
+        url: 'http://localhost:9999/users/login',
+        method: "POST",
+        data: {
+          ...e.detail.userInfo
+        },
+        success: function(data) {
+
+          if (data.statusCode === 200) {
+            wx.setStorageSync('userinfo', JSON.stringify(data));
+            _this.setData({
+              isLogin: true
+            })
+          } else {
+            console.log(data);
+            console.log('服务器问题');
+          }
+        }
+      })
+    } else {
+      console.log('拒绝登录');
+      wx.navigateBack({
+        delta: 1
       })
     }
   }

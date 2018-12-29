@@ -1,0 +1,15 @@
+<view class='container'>
+  <text class='title'>
+      {{detail.title}}
+  </text>
+  <view class='userinfo'>
+    <view>
+      <image src="{{detail.avatarUrl}}"></image>
+      <text>{{detail.nickName}}</text>
+    </view>
+    <text>{{detail.time}}</text>
+  </view>
+  <view class='content'>
+    {{detail.content}}
+  </view>
+</view>

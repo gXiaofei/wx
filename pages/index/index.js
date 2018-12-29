@@ -1,4 +1,5 @@
 // pages/index/index.js
+var util = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
@@ -84,7 +85,7 @@ Page({
 
   },
   // 请求列表
-  fetchList: function(pageNo ,push=true) {
+  fetchList: function(pageNo ,push=false) {
     var _this = this;
     wx.showLoading({
       mask: true
@@ -98,14 +99,39 @@ Page({
       },
       method: 'GET',
       success: function(result) {
-        console.log(result);
+        const results = result.data.results;
+        results.forEach(item=>{
+          item.time = util.formatTime(new Date(item.artCreateTime));
+        })
         if (result.statusCode === 200) {
           _this.setData({
-            dataList: push ? [...data, ...result.data.results] : result.data.results,
+            dataList: push ? [...data, ...results] : results,
             count: result.data.pageCount
           })
           wx.hideLoading();
           !push && wx.stopPullDownRefresh();
+        }
+      }
+    })
+  },
+  // 进入详情
+  clickDetail: function (e) {
+    const id = e.currentTarget.dataset.id;
+    wx.request({
+      url: 'http://localhost:9999/art/detail',
+      method: 'GET',
+      data: {
+        id: id
+      },
+      success: function (result) {
+        if(result.statusCode === 200){
+          console.log('result.data', result);
+          const data = JSON.stringify(result.data);
+          wx.navigateTo({
+            url: '/pages/detail/detail?data=' + data
+          })
+        }else{
+          console.log('详情获取失败');
         }
       }
     })

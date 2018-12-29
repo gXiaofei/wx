@@ -1,26 +1,28 @@
-  <template name="artTemplate">
-    <view class='artItem'>
+<template name="artTemplate">
+  <view class='artItem'>
+    <view bindtap='clickDetail' data-id="{{item._id}}">
       <view class='author'>
         <view>
           <image src="{{item.avatarUrl}}"></image>
           <text class='name'>{{item.nickName}}</text>
         </view>
-        <text class='time'>{{item.artCreateTime}}</text>
+        <text class='time'>{{item.time}}</text>
       </view>
       <text class='title'>{{item.title}}</text>
       <text class='content'>
        {{item.content}}
       </text>
-      <view class='operation'>
-        <view>
-          <text class='iconfont icon-chenggongbiaoqing'></text>
-        </view>
-        <view>
-          <text class='iconfont icon-wukongbiaoqing'></text>
-        </view>
-        <view>
-          <text class='iconfont icon-shibaibiaoqing'></text>
-        </view>
+    </view>
+    <view class='operation'>
+      <view>
+        <text class='iconfont icon-chenggongbiaoqing'></text>
+      </view>
+      <view>
+        <text class='iconfont icon-wukongbiaoqing'></text>
+      </view>
+      <view>
+        <text class='iconfont icon-shibaibiaoqing'></text>
       </view>
     </view>
-  </template>
+  </view>
+</template>
