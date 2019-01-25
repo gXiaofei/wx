@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/addArt/addArt",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/search/search"
   ],
   "window":{
     "backgroundTextStyle":"dark",

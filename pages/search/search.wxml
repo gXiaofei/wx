@@ -2,12 +2,9 @@
 
 <view class='container'>
    <view class='search'>
-    <input type='text' bindtap='toSearch' placeholder='请输入要搜索的内容' confirm-type='search'/>
+    <input type='text' bindconfirm="searchFunc" focus placeholder='请输入要搜索的内容' confirm-type='search'/>
   </view> 
   <block wx:for="{{dataList}}" wx:key="{{item.artCreateTime}}">
     <template is='artTemplate' data="{{item}}"/>
   </block>
-  <view wx:if="{{isLast}}" class='last'>
-    我是有底线的╯︿╰
-  </view>
 </view>

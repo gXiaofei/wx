@@ -144,7 +144,7 @@ Page({
         isSubmit: true
       });
       wx.request({
-        url: 'http://localhost:9999/art/write',
+        url: getApp().globalData.url + '/art/write',
         method: 'POST',
         data: {
           ...value,
@@ -179,7 +179,7 @@ Page({
       e.detail.userInfo.loginTime = new Date().getTime();
       const _this = this;
       wx.request({
-        url: 'http://localhost:9999/users/login',
+        url: getApp().globalData.url + '/users/login',
         method: "POST",
         data: {
           ...e.detail.userInfo

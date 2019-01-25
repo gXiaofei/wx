@@ -31,7 +31,9 @@ Page({
    */
   onShow: function() {
     var pageNo = this.data.pageNo;
-    this.fetchList(pageNo);
+    if (this.data.dataList.length === 0) {
+      this.fetchList(pageNo);
+    }
   },
 
   /**
@@ -53,7 +55,7 @@ Page({
    */
   onPullDownRefresh: function(e) {
     this.fetchList(1, false);
-    
+
     this.setData({
       pageNo: 1,
       isLast: false,
@@ -66,12 +68,12 @@ Page({
   onReachBottom: function() {
     var pageNo = this.data.pageNo;
     var count = this.data.count;
-    if (pageNo < count){
-      this.fetchList(pageNo + 1);
+    if (pageNo < count) {
+      this.fetchList(pageNo + 1, true);
       this.setData({
         pageNo: pageNo + 1
       })
-    }else{
+    } else {
       this.setData({
         isLast: true
       })
@@ -85,14 +87,14 @@ Page({
 
   },
   // 请求列表
-  fetchList: function(pageNo ,push=false) {
+  fetchList: function(pageNo, push = false) {
     var _this = this;
     wx.showLoading({
       mask: true
     });
     const data = this.data.dataList;
     wx.request({
-      url: 'http://localhost:9999/art/info',
+      url: getApp().globalData.url + '/art/info',
       data: {
         pageNo: pageNo,
         pageSize: 9
@@ -100,7 +102,7 @@ Page({
       method: 'GET',
       success: function(result) {
         const results = result.data.results;
-        results.forEach(item=>{
+        results.forEach(item => {
           item.time = util.formatTime(new Date(item.artCreateTime));
         })
         if (result.statusCode === 200) {
@@ -115,25 +117,30 @@ Page({
     })
   },
   // 进入详情
-  clickDetail: function (e) {
+  clickDetail: function(e) {
     const id = e.currentTarget.dataset.id;
     wx.request({
-      url: 'http://localhost:9999/art/detail',
+      url: getApp().globalData.url + '/art/detail',
       method: 'GET',
       data: {
         id: id
       },
-      success: function (result) {
-        if(result.statusCode === 200){
+      success: function(result) {
+        if (result.statusCode === 200) {
           console.log('result.data', result);
           const data = JSON.stringify(result.data);
           wx.navigateTo({
             url: '/pages/detail/detail?data=' + data
           })
-        }else{
+        } else {
           console.log('详情获取失败');
         }
       }
+    })
+  },
+  toSearch: function() {
+    wx.navigateTo({
+      url: '/pages/search/search',
     })
   }
 })
